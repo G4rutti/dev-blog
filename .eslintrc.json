@@ -1,0 +1,14 @@
+{
+  "extends": ["next", "next/core-web-vitals", "prettier", "plugin:prettier/recommended"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "linebreak-style": "off",
+    "prettier/prettier": "error",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "react/display-name": "off"
+  },
+  "plugins": ["prettier"],
+  "ignorePatterns": ["*.css", "*.ttf", "*.json", "*.svg", "*.md"]
+}

@@ -11,7 +11,7 @@ const Home = () => {
   }
 
   return (
-    <h1>Olá {session.user?.name}</h1>
+    <h1>Olá, colega: {session.user?.name}</h1>
   )
 }
 

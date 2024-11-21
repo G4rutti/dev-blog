@@ -10,8 +10,17 @@ import {
 import GeometricNetworkBackground from '@/components/userDid/GeometricNetworkBackground'
 import { Github } from 'lucide-react'
 import { useTheme } from 'next-themes'
+import { signIn, signOut, useSession } from 'next-auth/react'
+import { redirect } from 'next/navigation'
 
-export default function Home() {
+export default function App() {
+  const { data: session } = useSession()
+  if (session && session.user) {
+    return (
+      redirect('/home')
+    )
+  }
+
   return (
     <div className="w-full h-[100vh] flex justify-center items-center">
       <GeometricNetworkBackground />
@@ -24,7 +33,11 @@ export default function Home() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Button className="w-full" variant={'outline'}>
+            <Button
+              className="w-full"
+              variant={'outline'}
+              onClick={() => signIn('github')}
+            >
               <Github />
               <p>Entre com GitHub</p>
             </Button>
